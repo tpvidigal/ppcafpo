@@ -36,26 +36,28 @@ import matplotlib.pyplot as plt
 
 #restrição orçamentária
 
-x1 = [-22.33, 0]
-y1 = [0, -35]
+x1 = [22.33, 0]
+y1 = [0, 35]
 
 plt.plot(x1, y1, label = "Restrição orçamentária")
 
 #restrição calórica
-x2 = [-53.33, 0]
-y2 = [0, -80]
+x2 = [53.33, 0]
+y2 = [0, 80]
 
 plt.plot(x2, y2, label = "Restrição calórica")
 
 #restrição temporal
-x3 = [-9, 0]
-y3 = [0, -9]
+x3 = [9, 0]
+y3 = [0, 9]
 
 plt.plot(x3, y3, label = "Restrição temporal")
 
-x4 = [-1, -1]
-y4 = [0, -80]
+x4 = [1, 1]
+y4 = [0, 80]
 
 plt.plot(x4, y4, label = "Restrição pelo menos uma modalidade")
 
-plt.show();
+plt.title("Questão 01 - FPO")
+plt.legend()
+plt.show()
