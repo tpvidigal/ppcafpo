@@ -1,4 +1,6 @@
+import time
 from scipy.optimize import linprog as lp_solver
+import numpy as np
 
 # Min  Z = 600x_1 + 800x_2 + 700x_3 + 400x_4 + 900x_5 + 600x_6
 # s.a  1x_1 + 0x_2 + 0x_3 + 1x_4 + 0x_5 + 0x_6 = 300
@@ -20,3 +22,11 @@ print(res)
 print("")
 print("Result:", res.fun)
 print("X:     ", res.x)
+print("")
+
+tempos = []
+for _ in range(100):
+    inicio = time.process_time()
+    lp_solver(c=c, A_eq=A_eq, b_eq=b_eq)
+    tempos += [time.process_time() - inicio]
+print("Tempo de execução:", np.mean(tempos), "+-", np.std(tempos), "segundos")

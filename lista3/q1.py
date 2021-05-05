@@ -1,4 +1,6 @@
+import time
 from scipy.optimize import linprog as lp_solver
+import numpy as np
 
 # Maquina       Dispon Prod1 Prod2 Prod3
 # fresadora        500     9     3     5
@@ -37,3 +39,11 @@ print(res)
 print("")
 print("Result:", -res.fun)
 print("X:     ", res.x)
+print("")
+
+tempos = []
+for _ in range(100):
+    inicio = time.process_time()
+    lp_solver(c=c, A_ub=A_ub, b_ub=b_ub, bounds=bounds)
+    tempos += [time.process_time() - inicio]
+print("Tempo de execução:", np.mean(tempos), "+-", np.std(tempos), "segundos")
